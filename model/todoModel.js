@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const TODOSchema = mongoose.Schema({
+const TODOSchema = new mongoose.Schema({
     tarefa: String,
     concluido: Boolean,
-    data: Date.now,
+    data: Date
 })
 
 module.exports = mongoose.model('TODO', TODOSchema)

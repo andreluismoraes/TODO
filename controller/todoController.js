@@ -1,5 +1,9 @@
+const TODO = require('../model/todoModel')
+
 module.exports ={
+    
     async index(req, res){
-        return res.json({message: 'hello'})
+        const todo = await TODO.find()
+        return todo
     }
 }
