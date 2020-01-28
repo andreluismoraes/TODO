@@ -5,6 +5,7 @@ routes = Router()
 
 routes.get('/todo', TODO.index)
 routes.post('/todo', TODO.store)
+routes.get('/notrealized', TODO.notrealized)
 
 
 module.exports = routes

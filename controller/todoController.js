@@ -12,9 +12,20 @@ module.exports ={
     //usando o findoneandupdate
     async store(req, res){
         const todos = await TODO.findOneAndUpdate(
+            //search
             {tarefa: req.body.todo},
+            //update or create
             {$set: {tarefa: req.body.todo, concluido: req.body.conclui, data: Date.now()}},
+            //enable upsert to true, and retur new: true
             {upsert: true, new: true}
+        )
+        return res.json(todos)
+    },
+
+    //achando as tarefas que não foram realizadas
+    async notrealized(req, res){
+        const todos = await TODO.find(
+            {concluido: false}
         )
         return res.json(todos)
     }
