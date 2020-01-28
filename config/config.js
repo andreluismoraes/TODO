@@ -1,5 +1,5 @@
 const express = require('express')
-const server = require("./originalServer")
+const server = require('./originalServer')
 const route = require('../routes')
 
 //use this to conect to server
@@ -8,7 +8,7 @@ const route = require('../routes')
 //to run the aplication 'npm run dev'
 const app = express()
 
-server.then(conection => conection.connect).catch(err => { message: err})
+server.then(conection => conection.connect).catch(err => {message: err})
 
 app.use(express.json())
 

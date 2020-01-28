@@ -3,7 +3,7 @@ const TODO = require('./controller/todoController')
 
 routes = Router()
 
-routes.get('/', TODO.index)
+routes.get('/todo', TODO.index)
 
 
 module.exports = routes
