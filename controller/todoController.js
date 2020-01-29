@@ -1,4 +1,5 @@
 const TODO = require('../model/todoModel')
+const convertindData = require('../utils/convertindData')
 
 module.exports ={
     
@@ -11,11 +12,12 @@ module.exports ={
     //criando ou atualizando uma todo como o mesmo nome
     //usando o findoneandupdate
     async store(req, res){
+
         const todos = await TODO.findOneAndUpdate(
             //search
             {tarefa: req.body.todo},
             //update or create
-            {$set: {tarefa: req.body.todo, concluido: req.body.conclui, data: Date.now()}},
+            {$set: {tarefa: req.body.todo, concluido: req.body.conclui, data: convertindData}},
             //enable upsert to true, and retur new: true
             {upsert: true, new: true}
         )
@@ -26,6 +28,13 @@ module.exports ={
     async notrealized(req, res){
         const todos = await TODO.find(
             {concluido: false}
+        )
+        return res.json(todos)
+    },
+
+    async fordate(req, res){
+        const todos = await TODO.find(
+            {data: req.query.date}
         )
         return res.json(todos)
     }
