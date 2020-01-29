@@ -13,6 +13,7 @@ routes.get('/fordate', TODO.fordate)
 /**Rotas do user */
 routes.get('/user', USER.index)
 routes.post('/user', USER.store)
+routes.get('/userStreet', USER.findUserStreet)
 
 
 module.exports = routes
