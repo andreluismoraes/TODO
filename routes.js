@@ -12,6 +12,7 @@ routes.get('/fordate', TODO.fordate)
 
 /**Rotas do user */
 routes.get('/user', USER.index)
+routes.post('/user', USER.store)
 
 
 module.exports = routes
