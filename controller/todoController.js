@@ -1,5 +1,5 @@
 const TODO = require('../model/todoModel')
-const convertindData = require('../utils/convertindData')
+const utilconvertindDate = require('../utils/convertindData')
 
 module.exports ={
     
@@ -17,7 +17,7 @@ module.exports ={
             //search
             {tarefa: req.body.todo},
             //update or create
-            {$set: {tarefa: req.body.todo, concluido: req.body.conclui, data: convertindData}},
+            {$set: {tarefa: req.body.todo, concluido: req.body.conclui, data: utilconvertindDate.parseDate()}},
             //enable upsert to true, and retur new: true
             {upsert: true, new: true}
         )
