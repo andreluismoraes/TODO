@@ -41,7 +41,7 @@ module.exports = {
     },
 
     async findUserStreet(req, res){
-        const selectJustStreet = await USER.find({}).select('enderecoUser')
+        const selectJustStreet = await USER.find().select('enderecoUser').select('nomeUser')
         const userStreet = await selectJustStreet.filter(data => data.enderecoUser.localidadeUser === req.query.endereco)
         
         return res.json(userStreet)
